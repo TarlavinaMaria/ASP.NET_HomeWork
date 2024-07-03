@@ -78,12 +78,20 @@
     <Compile Include="Cocktail\CocktailModel.cs" />
     <Compile Include="Cocktail\CocktailRepository.cs" />
     <Compile Include="Cocktail\ICocktailRepository.cs" />
+    <Compile Include="GameCharacters\Archer.cs" />
+    <Compile Include="GameCharacters\GameCharacterModule.cs" />
+    <Compile Include="GameCharacters\Infantryman.cs" />
+    <Compile Include="GameCharacters\GameCharacter.cs" />
+    <Compile Include="GameCharacters\Spearman.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GeometricFigure\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
