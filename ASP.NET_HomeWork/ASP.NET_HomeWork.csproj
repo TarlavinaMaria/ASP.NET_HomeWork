@@ -78,6 +78,11 @@
     <Compile Include="Cocktail\CocktailModel.cs" />
     <Compile Include="Cocktail\CocktailRepository.cs" />
     <Compile Include="Cocktail\ICocktailRepository.cs" />
+    <Compile Include="Device\Blender.cs" />
+    <Compile Include="Device\CoffeeMill.cs" />
+    <Compile Include="Device\DeviceInfoManager.cs" />
+    <Compile Include="Device\IDeviceInfo.cs" />
+    <Compile Include="Device\Mixer.cs" />
     <Compile Include="GameCharacters\Archer.cs" />
     <Compile Include="GameCharacters\GameCharacterModule.cs" />
     <Compile Include="GameCharacters\Infantryman.cs" />
