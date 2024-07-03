@@ -30,28 +30,31 @@ namespace ASP.NET_HomeWork
             //// Экспорт информации о коктейлях в файл
             //cocktailManager.ExportToFile();
 
-            //Console.ReadLine();
+            //Console.WriteLine("--------------------------------------------------");
 
-            var containerBuilder = new ContainerBuilder();
-            containerBuilder.RegisterModule<GameCharacterModule>();
-            var container = containerBuilder.Build();
+            //var containerBuilderCharacter = new ContainerBuilder();
+            //containerBuilderCharacter.RegisterModule<GameCharacterModule>();
+            //var containerCharacter = containerBuilderCharacter.Build();
 
-            var footman = container.ResolveNamed<GameCharacter>("Footman");
-            var spearman = container.ResolveNamed<GameCharacter>("Spearman");
-            var archer = container.ResolveNamed<GameCharacter>("Archer");
+            //var footman = containerCharacter.ResolveNamed<GameCharacter>("Footman");
+            //var spearman = containerCharacter.ResolveNamed<GameCharacter>("Spearman");
+            //var archer = containerCharacter.ResolveNamed<GameCharacter>("Archer");
 
-            footman.Attack(spearman);
-            spearman.Attack(archer);
+            //footman.Attack(spearman);
+            //spearman.Attack(archer);
 
 
-            archer.DisplayInfo();
-            footman.DisplayInfo();
-            spearman.DisplayInfo();
+            //archer.DisplayInfo();
+            //footman.DisplayInfo();
+            //spearman.DisplayInfo();
 
-            footman.SaveToFile("characters.txt");
-            spearman.SaveToFile("characters.txt");
-            archer.SaveToFile("characters.txt");
+            //footman.SaveToFile("characters.txt");
+            //spearman.SaveToFile("characters.txt");
+            //archer.SaveToFile("characters.txt");
 
+            //Console.WriteLine("--------------------------------------------------");
+
+           
 
         }
     }
