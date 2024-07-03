@@ -83,6 +83,11 @@
     <Compile Include="GameCharacters\Infantryman.cs" />
     <Compile Include="GameCharacters\GameCharacter.cs" />
     <Compile Include="GameCharacters\Spearman.cs" />
+    <Compile Include="Geometric\Circle.cs" />
+    <Compile Include="Geometric\IGeometricShape.cs" />
+    <Compile Include="Geometric\IShapeInfoService.cs" />
+    <Compile Include="Geometric\Rectangle.cs" />
+    <Compile Include="Geometric\ShapeInfoService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -90,8 +95,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Geometric\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

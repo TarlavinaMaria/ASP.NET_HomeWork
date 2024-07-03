@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ASP.NET_HomeWork.Cocktail;
 using ASP.NET_HomeWork.GameCharacters;
+using ASP.NET_HomeWork.Geometric;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 
@@ -54,7 +55,25 @@ namespace ASP.NET_HomeWork
 
             //Console.WriteLine("--------------------------------------------------");
 
-           
+            // Настройка Autofac
+            var builder = new ContainerBuilder();
+            builder.RegisterType<Circle>().AsSelf();
+            builder.RegisterType<Rectangle>().AsSelf();
+            builder.RegisterType<ShapeInfoService>().As<IShapeInfoService>().SingleInstance();
+            var container = builder.Build();
+
+            // Получение экземпляров геометрических фигур и сервиса
+            var circle = container.Resolve<Circle>(new NamedParameter("radius", 5.0));
+            var rectangle = container.Resolve<Rectangle>(new NamedParameter("width", 4.0), new NamedParameter("height", 3.0));
+            var shapeInfoService = container.Resolve<IShapeInfoService>();
+
+            // Отображение информации о фигурах на экране
+            shapeInfoService.DisplayShapeInfo(circle);
+            shapeInfoService.DisplayShapeInfo(rectangle);
+
+            // Запись информации о фигурах в файл
+            shapeInfoService.WriteShapeInfoToFile(circle, "circle_info.txt");
+            shapeInfoService.WriteShapeInfoToFile(rectangle, "rectangle_info.txt");
 
         }
     }
