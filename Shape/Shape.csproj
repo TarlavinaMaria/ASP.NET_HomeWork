@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CAD8BEAD-C2FF-4F1C-8EAC-DB028997CA95}</ProjectGuid>
+    <ProjectGuid>{FE684BDF-38BA-4298-94EC-E89CFAE62B69}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>GeometricShape</RootNamespace>
-    <AssemblyName>GeometricShape</AssemblyName>
+    <RootNamespace>Shape</RootNamespace>
+    <AssemblyName>Shape</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,16 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleRenderer.cs" />
-    <Compile Include="IRenderer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Shape\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

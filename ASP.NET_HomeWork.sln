@@ -5,7 +5,7 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASP.NET_HomeWork", "ASP.NET_HomeWork\ASP.NET_HomeWork.csproj", "{063C9703-2BFF-46E1-99BE-D8077F2D2FD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeometricShape", "GeometricShape\GeometricShape.csproj", "{CAD8BEAD-C2FF-4F1C-8EAC-DB028997CA95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shape", "Shape\Shape.csproj", "{FE684BDF-38BA-4298-94EC-E89CFAE62B69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{063C9703-2BFF-46E1-99BE-D8077F2D2FD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{063C9703-2BFF-46E1-99BE-D8077F2D2FD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{063C9703-2BFF-46E1-99BE-D8077F2D2FD9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CAD8BEAD-C2FF-4F1C-8EAC-DB028997CA95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CAD8BEAD-C2FF-4F1C-8EAC-DB028997CA95}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CAD8BEAD-C2FF-4F1C-8EAC-DB028997CA95}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CAD8BEAD-C2FF-4F1C-8EAC-DB028997CA95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE684BDF-38BA-4298-94EC-E89CFAE62B69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE684BDF-38BA-4298-94EC-E89CFAE62B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE684BDF-38BA-4298-94EC-E89CFAE62B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE684BDF-38BA-4298-94EC-E89CFAE62B69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
