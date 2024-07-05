@@ -18,8 +18,12 @@ namespace Shape
 
         public void RenderShape()
         {
-            //string shapeOutput = _shape.Render();
-            ShapeFileStorage.SaveShape(_shape);
+            //
+            SaveFileTXT.SaveShape(_shape);
+        }
+        public void Render()
+        {
+            string shapeOutput = _shape.Render();
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Net.NetworkInformation;
 
 namespace Shape.Save
 {
-    internal class ShapeFileStorage
+    internal class SaveFileTXT
     {
         public static void SaveShape(GeometricShape shape)
         {

@@ -12,19 +12,36 @@ namespace Shape
         static void Main(string[] args)
         {
             // Создание объектов геометрических фигур
-            var circle = new Circle(5.0);
-            var rectangle = new Rectangle(10.0, 5.0);
-            var triangle = new Triangle(8.0, 6.0);
+            //var circle = new Circle(5.0);
+            //var rectangle = new Rectangle(10.0, 5.0);
+            //var triangle = new Triangle(8.0, 6.0);
 
             // Создание рендерера и отображение фигур
-            var shapeRenderer = new ShapeRenderer(circle);
-            shapeRenderer.RenderShape();
+            //var shapeRenderer = new ShapeRenderer(circle);
+            //shapeRenderer.RenderShape();
 
-            shapeRenderer = new ShapeRenderer(rectangle);
-            shapeRenderer.RenderShape();
+            //shapeRenderer = new ShapeRenderer(rectangle);
+            //shapeRenderer.RenderShape();
 
-            shapeRenderer = new ShapeRenderer(triangle);
-            shapeRenderer.RenderShape();
+            //shapeRenderer = new ShapeRenderer(triangle);
+            //shapeRenderer.RenderShape();
+
+            // 2 Часть
+            // Создание объектов геометрических фигур
+            var shapes = new List<GeometricShape>
+            {
+                new Circle(5.0),
+                new Rectangle(10.0, 5.0),
+                new Triangle(8.0, 6.0)
+            };
+            //отрисовка 
+            //for (int i = 0; i < shapes.Count; i++)
+            //{
+            //    var shape = shapes[i];
+            //    var shapeRenderer = new ShapeRenderer(shape);
+            //    shapeRenderer.Render();
+            //}
+
         }
     }
 }
