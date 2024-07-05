@@ -11,12 +11,12 @@ namespace Shape
     {
         static void Main(string[] args)
         {
-            // Создание объектов геометрических фигур
+            //// Создание объектов геометрических фигур
             //var circle = new Circle(5.0);
             //var rectangle = new Rectangle(10.0, 5.0);
             //var triangle = new Triangle(8.0, 6.0);
 
-            // Создание рендерера и отображение фигур
+            ////Создание рендерера и отображение фигур
             //var shapeRenderer = new ShapeRenderer(circle);
             //shapeRenderer.RenderShape();
 
@@ -34,13 +34,8 @@ namespace Shape
                 new Rectangle(10.0, 5.0),
                 new Triangle(8.0, 6.0)
             };
-            //отрисовка 
-            //for (int i = 0; i < shapes.Count; i++)
-            //{
-            //    var shape = shapes[i];
-            //    var shapeRenderer = new ShapeRenderer(shape);
-            //    shapeRenderer.Render();
-            //}
+            FileTXT.SaveShapesList(shapes);
+            FileTXT.PrintFileContents("all_shapes.txt");
 
         }
     }

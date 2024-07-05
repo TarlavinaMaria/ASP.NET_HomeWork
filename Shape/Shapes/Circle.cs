@@ -22,6 +22,26 @@ namespace Shape
 
         public override string Render()
         {
+            string output = GetName() + Environment.NewLine;
+            for (int y = 0; y <= 2 * _radius; y++)
+            {
+                for (int x = 0; x <= 2 * _radius; x++)
+                {
+                    if (Math.Sqrt(Math.Pow(x - _radius, 2) + Math.Pow(y - _radius, 2)) <= _radius)
+                    {
+                        output += "*";
+                    }
+                    else
+                    {
+                        output += " ";
+                    }
+                }
+                output += Environment.NewLine;
+            }
+            return output;
+        }
+        public override string RenderConsole()
+        {
             string output = "Рисование " + GetName() + Environment.NewLine;
             for (int y = 0; y <= 2 * _radius; y++)
             {

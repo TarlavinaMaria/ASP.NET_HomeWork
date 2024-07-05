@@ -10,5 +10,6 @@ namespace Shape
     {
         public abstract string GetName();
         public abstract string Render();
+        public abstract string RenderConsole();
     }
 }
