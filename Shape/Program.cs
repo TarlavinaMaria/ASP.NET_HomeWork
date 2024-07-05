@@ -1,4 +1,5 @@
 ﻿using Shape.Save;
+using Shape.Save_and_Load;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +35,10 @@ namespace Shape
                 new Rectangle(10.0, 5.0),
                 new Triangle(8.0, 6.0)
             };
+            //TXT
             FileTXT.SaveShapesList(shapes);
             FileTXT.PrintFileContents("all_shapes.txt");
+
 
         }
     }

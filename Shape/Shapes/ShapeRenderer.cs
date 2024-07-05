@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Shape
 {
-    internal class ShapeRenderer
+    public class ShapeRenderer
     {
         private readonly GeometricShape _shape;
 

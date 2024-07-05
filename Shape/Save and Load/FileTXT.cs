@@ -8,7 +8,7 @@ using System.Net.NetworkInformation;
 
 namespace Shape.Save
 {
-    internal class FileTXT
+    public class FileTXT
     {
         public static void SaveShape(GeometricShape shape)
         {
@@ -36,5 +36,6 @@ namespace Shape.Save
             Console.WriteLine("Содержимое файла:");
             Console.WriteLine(fileContent);
         }
+
     }
 }

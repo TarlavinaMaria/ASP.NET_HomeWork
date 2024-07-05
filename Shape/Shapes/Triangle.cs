@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shape
 {
-    internal class Triangle : GeometricShape
+    public class Triangle : GeometricShape
     {
         private double _side;
         private double _height;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shape
 {
-    internal class Rectangle: GeometricShape
+    public class Rectangle: GeometricShape
     {
         private double _width;
         private double _height;

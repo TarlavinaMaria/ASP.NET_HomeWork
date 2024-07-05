@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shape
 {
-    internal abstract class GeometricShape
+    public abstract class GeometricShape
     {
         public abstract string GetName();
         public abstract string Render();

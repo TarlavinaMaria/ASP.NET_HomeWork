@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shape
 {
-    internal class Circle : GeometricShape
+    public class Circle : GeometricShape
     {
         private double _radius;
 
@@ -14,7 +14,7 @@ namespace Shape
         {
             _radius = radius;
         }
-
+        public Circle(){}
         public override string GetName()
         {
             return "Круг";
