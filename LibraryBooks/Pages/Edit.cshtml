@@ -1,0 +1,32 @@
+﻿@page "{id}"
+@model EditModel
+@{
+    ViewData["Title"] = "Редактирование книги";
+}
+
+<h1>Редактирование книги</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="title">Название книги</label>
+        <input type="text" class="form-control" id="title" name="Title" value="@Model.Book.Title">
+    </div>
+    <div class="form-group">
+        <label for="author">ФИО автора</label>
+        <input type="text" class="form-control" id="author" name="Author" value="@Model.Book.Author">
+    </div>
+    <div class="form-group">
+        <label for="genre">Жанр</label>
+        <input type="text" class="form-control" id="genre" name="Genre" value="@Model.Book.Genre">
+    </div>
+    <div class="form-group">
+        <label for="publisher">Издательство</label>
+        <input type="text" class="form-control" id="publisher" name="Publisher" value="@Model.Book.Publisher">
+    </div>
+    <div class="form-group">
+        <label for="year">Год издания</label>
+        <input type="number" class="form-control" id="year" name="YearPublished" value="@Model.Book.YearPublished">
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <a href="/Index" class="btn btn-secondary">Отмена</a>
+</form>

@@ -4,6 +4,7 @@
     ViewData["Title"] = "Список книг";
 }
 
+
 <h1>Список книг</h1>
 
 <form method="get">
@@ -50,6 +51,9 @@
                 <td>@book.Genre</td>
                 <td>@book.Publisher</td>
                 <td>@book.YearPublished</td>
+                <td>
+                    <a href="/Edit/@book.Title" class="btn btn-primary">Редактировать</a>
+                </td>
             </tr>
         }
     </tbody>

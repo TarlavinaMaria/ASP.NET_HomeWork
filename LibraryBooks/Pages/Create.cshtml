@@ -1,0 +1,41 @@
+﻿@page
+@model CreateModel
+@{
+    ViewData["Title"] = "Добавление книги";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="title">Название книги</label>
+        <input type="text" class="form-control" id="title" name="Title" value="@Model.Book.Title">
+        <span asp-validation-for="Book.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="author">ФИО автора</label>
+        <input type="text" class="form-control" id="author" name="Author" value="@Model.Book.Author">
+        <span asp-validation-for="Book.Author" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="genre">Жанр</label>
+        <input type="text" class="form-control" id="genre" name="Genre" value="@Model.Book.Genre">
+        <span asp-validation-for="Book.Genre" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="publisher">Издательство</label>
+        <input type="text" class="form-control" id="publisher" name="Publisher" value="@Model.Book.Publisher">
+        <span asp-validation-for="Book.Publisher" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="year">Год издания</label>
+        <input type="number" class="form-control" id="year" name="YearPublished" value="@Model.Book.YearPublished">
+        <span asp-validation-for="Book.YearPublished" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Добавить</button>
+    <a href="/Index" class="btn btn-secondary">Отмена</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
