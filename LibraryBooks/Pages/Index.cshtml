@@ -5,6 +5,32 @@
 }
 
 <h1>Список книг</h1>
+
+<form method="get">
+    <div class="form-group">
+        <label for="searchTitle">Название книги</label>
+        <input type="text" class="form-control" id="searchTitle" name="SearchTitle" value="@Model.SearchTitle">
+    </div>
+    <div class="form-group">
+        <label for="searchAuthor">ФИО автора</label>
+        <input type="text" class="form-control" id="searchAuthor" name="SearchAuthor" value="@Model.SearchAuthor">
+    </div>
+    <div class="form-group">
+        <label for="searchGenre">Жанр</label>
+        <input type="text" class="form-control" id="searchGenre" name="SearchGenre" value="@Model.SearchGenre">
+    </div>
+    <div class="form-group">
+        <label for="searchPublisher">Издательство</label>
+        <input type="text" class="form-control" id="searchPublisher" name="SearchPublisher" value="@Model.SearchPublisher">
+    </div>
+    <div class="form-group">
+        <label for="searchYear">Год издания</label>
+        <input type="number" class="form-control" id="searchYear" name="SearchYear" value="@Model.SearchYear">
+    </div>
+    <button type="submit" class="btn btn-primary">Поиск</button>
+    <a href="/Index" class="btn btn-secondary">Показать все</a>
+</form>
+
 <table class="table">
     <thead>
         <tr>

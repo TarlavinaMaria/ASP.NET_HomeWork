@@ -10,11 +10,31 @@ namespace LibraryBooks.Pages
 {
     public class IndexModel : PageModel
     {
-        public List<Book> Books { get; set; }
+        public List<Book> Books { get; set; } // список книг
+
+        //Поиск
+        //По умолчанию, [BindProperty] работает только с POST-запросами.
+        //Однако, если вам нужно, чтобы свойства модели заполнялись данными из GET-запросов (например, из URL-параметров),
+        //вы можете использовать параметр SupportsGet = true.
+        [BindProperty(SupportsGet = true)]
+        public string SearchTitle { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string SearchAuthor { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string SearchGenre { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string SearchPublisher { get; set; }
+
+        // для года ставим int? - позволяет явно указать, что это свойство может быть не заполнено. А так же для проверки. 
+        [BindProperty(SupportsGet = true)]
+        public int? SearchYear { get; set; }
 
         public void OnGet()
         {
-            Books = new List<Book>
+            var allBooks = new List<Book>
             {
                 new Book { Title = "1984", Author = "Джордж Оруэлл", Genre = "Научная фантастика", Publisher = "Secker & Warburg", YearPublished = 1949 },
                 new Book { Title = "Убить пересмешника", Author = "Харпер Ли", Genre = " Роман", Publisher = "J. B. Lippincott & Co.", YearPublished = 1960 },
@@ -22,6 +42,36 @@ namespace LibraryBooks.Pages
                 new Book { Title = "Сто лет одиночества", Author = "Габриэль Гарсиа Маркес", Genre = " Магический реализм", Publisher = "Editorial Sudamericana", YearPublished = 1967 },
                 new Book { Title = "Дом, в котором...", Author = "Мариам Петросян", Genre = "Мистика", Publisher = "Издательство Эксмо", YearPublished = 2012 }
             };
+            //Поиск
+            //Метод AsQueryable преобразует список. IQueryable позволяет строить запросы LINQ, которые могут быть выполнены позже.
+            /* Принцип работы
+            Каждая строка применяет фильтр к списку книг, если соответствующий критерий поиска задан.
+            WhereIf: Это метод расширения, который принимает условие и предикат. Если условие истинно, предикат добавляется к запросу.
+            !string.IsNullOrEmpty(_): Проверяет, что запрос не является пустой строкой или null.
+            b => b.Title.Contains(_): Предикат, который фильтрует книги, у которых название содержит значение _.
+             */
+            Books = allBooks.AsQueryable()
+            .WhereIf(!string.IsNullOrEmpty(SearchTitle), b => b.Title.Contains(SearchTitle))
+            .WhereIf(!string.IsNullOrEmpty(SearchAuthor), b => b.Author.Contains(SearchAuthor))
+            .WhereIf(!string.IsNullOrEmpty(SearchGenre), b => b.Genre.Contains(SearchGenre))
+            .WhereIf(!string.IsNullOrEmpty(SearchPublisher), b => b.Publisher.Contains(SearchPublisher))
+            .WhereIf(SearchYear.HasValue, b => b.YearPublished == SearchYear)
+            .ToList();
+        }
+
+    }
+    public static class QueryableExtensions // класс для поиска
+    {
+        public static IQueryable<T> WhereIf<T>(this IQueryable<T> query, bool condition, System.Linq.Expressions.Expression<System.Func<T, bool>> predicate)
+        {
+            //Этот метод расширения позволяет условно добавлять фильтры к запросу IQueryable<T>.
+            //Если условие (condition) истинно, метод добавляет предикат (predicate) к запросу.
+            //Если условие ложно, метод возвращает исходный запрос без изменений.
+            if (condition)
+                return query.Where(predicate);
+            else
+                return query;
         }
     }
 }
+
