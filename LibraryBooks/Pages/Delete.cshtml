@@ -4,28 +4,29 @@
     ViewData["Title"] = "Удаление книги";
 }
 
-<h1>Удаление книги</h1>
+<h1 class="text-center mb-4">Удаление книги</h1>
 
-<h3>Вы уверены, что хотите удалить эту книгу?</h3>
-<div>
-    <h4>Книга</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">Название</dt>
-        <dd class="col-sm-10">@Model.Book.Title</dd>
-        <dt class="col-sm-2">Автор</dt>
-        <dd class="col-sm-10">@Model.Book.Author</dd>
-        <dt class="col-sm-2">Жанр</dt>
-        <dd class="col-sm-10">@Model.Book.Genre</dd>
-        <dt class="col-sm-2">Издательство</dt>
-        <dd class="col-sm-10">@Model.Book.Publisher</dd>
-        <dt class="col-sm-2">Год издания</dt>
-        <dd class="col-sm-10">@Model.Book.YearPublished</dd>
-    </dl>
-
-    <form method="post">
-        <input type="hidden" asp-for="Book.Title" />
-        <button type="submit" class="btn btn-danger">Удалить</button>
-        <a href="/Index" class="btn btn-secondary">Отмена</a>
-    </form>
+<h3 class="text-center mb-4">Вы уверены, что хотите удалить эту книгу?</h3>
+<div class="card mx-auto" style="max-width: 500px;">
+    <div class="card-body">
+        <h4 class="card-title">Книга</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-4">Название</dt>
+            <dd class="col-sm-8">@Model.Book.Title</dd>
+            <dt class="col-sm-4">Автор</dt>
+            <dd class="col-sm-8">@Model.Book.Author</dd>
+            <dt class="col-sm-4">Жанр</dt>
+            <dd class="col-sm-8">@Model.Book.Genre</dd>
+            <dt class="col-sm-4">Издательство</dt>
+            <dd class="col-sm-8">@Model.Book.Publisher</dd>
+            <dt class="col-sm-4">Год издания</dt>
+            <dd class="col-sm-8">@Model.Book.YearPublished</dd>
+        </dl>
+        <form method="post" class="text-center">
+            <input type="hidden" asp-for="Book.Title" />
+            <button type="submit" class="btn btn-danger">Удалить</button>
+            <a href="/Index" class="btn btn-secondary">Отмена</a>
+        </form>
+    </div>
 </div>

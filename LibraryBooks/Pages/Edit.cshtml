@@ -4,29 +4,73 @@
     ViewData["Title"] = "Редактирование книги";
 }
 
-<h1>Редактирование книги</h1>
+<h1 class="text-center mb-4">Редактирование книги</h1>
 
-<form method="post">
-    <div class="form-group">
-        <label for="title">Название книги</label>
-        <input type="text" class="form-control" id="title" name="Title" value="@Model.Book.Title">
+<form method="post" class="needs-validation" novalidate>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="title">Название книги</label>
+            <input type="text" class="form-control" id="title" name="Title" value="@Model.Book.Title" required>
+            <div class="invalid-feedback">
+                Пожалуйста, введите название книги.
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="author">ФИО автора</label>
+            <input type="text" class="form-control" id="author" name="Author" value="@Model.Book.Author" required>
+            <div class="invalid-feedback">
+                Пожалуйста, введите ФИО автора.
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="genre">Жанр</label>
+            <input type="text" class="form-control" id="genre" name="Genre" value="@Model.Book.Genre" required>
+            <div class="invalid-feedback">
+                Пожалуйста, введите жанр.
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="publisher">Издательство</label>
+            <input type="text" class="form-control" id="publisher" name="Publisher" value="@Model.Book.Publisher" required>
+            <div class="invalid-feedback">
+                Пожалуйста, введите издательство.
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="year">Год издания</label>
+            <input type="number" class="form-control" id="year" name="YearPublished" value="@Model.Book.YearPublished" required>
+            <div class="invalid-feedback">
+                Пожалуйста, введите год издания.
+            </div>
+        </div>
     </div>
     <div class="form-group">
-        <label for="author">ФИО автора</label>
-        <input type="text" class="form-control" id="author" name="Author" value="@Model.Book.Author">
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+        <a href="/Index" class="btn btn-secondary">Отмена</a>
     </div>
-    <div class="form-group">
-        <label for="genre">Жанр</label>
-        <input type="text" class="form-control" id="genre" name="Genre" value="@Model.Book.Genre">
-    </div>
-    <div class="form-group">
-        <label for="publisher">Издательство</label>
-        <input type="text" class="form-control" id="publisher" name="Publisher" value="@Model.Book.Publisher">
-    </div>
-    <div class="form-group">
-        <label for="year">Год издания</label>
-        <input type="number" class="form-control" id="year" name="YearPublished" value="@Model.Book.YearPublished">
-    </div>
-    <button type="submit" class="btn btn-primary">Сохранить</button>
-    <a href="/Index" class="btn btn-secondary">Отмена</a>
 </form>
+
+@section Scripts {
+    <script>
+        
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+}

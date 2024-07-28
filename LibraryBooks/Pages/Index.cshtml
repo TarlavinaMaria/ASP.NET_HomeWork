@@ -4,37 +4,53 @@
     ViewData["Title"] = "Список книг";
 }
 
-<h1>Список книг</h1>
 
-<a href="/Create" class="btn btn-success">Добавить книгу</a>
 
-<form method="get">
-    <div class="form-group">
-        <label for="searchTitle">Название книги</label>
-        <input type="text" class="form-control" id="searchTitle" name="SearchTitle" value="@Model.SearchTitle">
+<form method="get" class="mb-3" style="margin-top: 32px">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="searchTitle">Название книги</label>
+                <input type="text" class="form-control" id="searchTitle" name="SearchTitle" value="@Model.SearchTitle">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="searchAuthor">ФИО автора</label>
+                <input type="text" class="form-control" id="searchAuthor" name="SearchAuthor" value="@Model.SearchAuthor">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="searchGenre">Жанр</label>
+                <input type="text" class="form-control" id="searchGenre" name="SearchGenre" value="@Model.SearchGenre">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="searchPublisher">Издательство</label>
+                <input type="text" class="form-control" id="searchPublisher" name="SearchPublisher" value="@Model.SearchPublisher">
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="searchAuthor">ФИО автора</label>
-        <input type="text" class="form-control" id="searchAuthor" name="SearchAuthor" value="@Model.SearchAuthor">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="searchYear">Год издания</label>
+                <input type="number" class="form-control" id="searchYear" name="SearchYear" value="@Model.SearchYear">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-primary btn-block" style="margin-top: 32px;">Поиск</button>
+        </div>
+        <div class="col-md-3">
+            <a href="/Index" class="btn btn-secondary btn-block" style="margin-top: 32px;">Показать все</a>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="searchGenre">Жанр</label>
-        <input type="text" class="form-control" id="searchGenre" name="SearchGenre" value="@Model.SearchGenre">
-    </div>
-    <div class="form-group">
-        <label for="searchPublisher">Издательство</label>
-        <input type="text" class="form-control" id="searchPublisher" name="SearchPublisher" value="@Model.SearchPublisher">
-    </div>
-    <div class="form-group">
-        <label for="searchYear">Год издания</label>
-        <input type="number" class="form-control" id="searchYear" name="SearchYear" value="@Model.SearchYear">
-    </div>
-    <button type="submit" class="btn btn-primary">Поиск</button>
-    <a href="/Index" class="btn btn-secondary">Показать все</a>
 </form>
 
-<table class="table">
-    <thead>
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
         <tr>
             <th>Название</th>
             <th>Автор</th>
@@ -54,8 +70,10 @@
                 <td>@book.Publisher</td>
                 <td>@book.YearPublished</td>
                 <td>
-                    <a href="/Edit/@book.Title" class="btn btn-primary">Редактировать</a>
-                    <a href="/Delete/@book.Title" class="btn btn-danger">Удалить</a>
+                    <div class="d-flex justify-content-between">
+                        <a href="/Edit/@book.Title" class="btn btn-sm btn-primary">Редактировать</a>
+                        <a href="/Delete/@book.Title" class="btn btn-sm btn-danger ml-2">Удалить</a>
+                    </div>
                 </td>
             </tr>
         }
