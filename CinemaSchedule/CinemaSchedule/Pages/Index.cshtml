@@ -1,0 +1,30 @@
+﻿@page
+@model CinemaScheduleModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<body>
+    <div class="container">
+        <h2>Добавление расписания</h2>
+        <form method="post">
+            <div class="form-group">
+                <label for="title">Название:</label>
+                <input type="text" class="form-control" id="title" name="NewFilm.Title" required>
+            </div>
+            <div class="form-group">
+                <label for="director">Режисер:</label>
+                <input type="text" class="form-control" id="director" name="NewFilm.Director" required>
+            </div>
+            <div class="form-group">
+                <label for="genre">Жанр:</label>
+                <input type="text" class="form-control" id="genre" name="NewFilm.Genre" required>
+            </div>
+            <div class="form-group">
+                <label for="showtimes">Время показа (разделяйте время запятыми, например: 10:00, 14:00, 20:00):</label>
+                <input type="text" class="form-control" id="showtimes" name="Showtimes" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </form>
+    </div>
+</body>
