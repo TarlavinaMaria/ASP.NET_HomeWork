@@ -26,6 +26,14 @@ namespace LibraryBooks
         {
             allBooks.Add(book);
         }
+        public void DeleteBook(string title)
+        {
+            var bookToRemove = allBooks.FirstOrDefault(b => b.Title == title);
+            if (bookToRemove != null)
+            {
+                allBooks.Remove(bookToRemove);
+            }
+        }
 
         public void UpdateBook(Book book)
         {
