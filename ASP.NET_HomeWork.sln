@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaSchedule", "CinemaSch
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryBooks", "LibraryBooks\LibraryBooks.csproj", "{81415436-FD25-443B-ADD7-9F7EF25E05F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Registration", "Registration\Registration.csproj", "{9D845D87-5623-446A-A99F-5FA256EB6853}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Registration", "Registration\Registration.csproj", "{9D845D87-5623-446A-A99F-5FA256EB6853}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
