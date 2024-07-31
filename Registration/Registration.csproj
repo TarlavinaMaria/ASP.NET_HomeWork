@@ -4,8 +4,4 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Stripe.net" Version="45.5.0" />
-  </ItemGroup>
-
 </Project>
