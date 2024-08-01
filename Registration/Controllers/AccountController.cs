@@ -9,7 +9,8 @@ namespace Registration.Controllers
         [HttpGet]
         public ActionResult Register()
         {
-            return View(new RegisterModel());
+            RegisterModel model = new RegisterModel();
+            return View(model);
         }
 
         // Действие для обработки данных регистрации
