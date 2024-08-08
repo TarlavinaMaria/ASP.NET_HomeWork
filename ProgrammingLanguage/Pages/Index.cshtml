@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Programming Languages";
+}
+
+<h1>Programming Languages</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Rating</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var language in Model.Languages)
+        {
+            <tr>
+                <td>@language.Name</td>
+                <td>@language.Type</td>
+                <td>@language.Rating</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-name="@language.Name">Edit</a> |
+                    <form method="post" asp-page-handler="Delete" asp-route-name="@language.Name" style="display:inline;">
+                        <button type="submit" class="btn btn-link">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="./Create">Create New</a>
