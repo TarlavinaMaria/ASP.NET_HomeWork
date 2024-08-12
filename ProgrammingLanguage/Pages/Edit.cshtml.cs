@@ -48,12 +48,12 @@ namespace ProgrammingLanguage.Pages
 
             if (existingLanguage != null)
             {
-                existingLanguage.Type = Language.Type;
-                existingLanguage.Rating = Language.Rating;
-                _repository.SaveLanguages(languages);
+                existingLanguage.Type = Language.Type; // Обновляет тип языка
+                existingLanguage.Rating = Language.Rating;// Обновляет рейтинг языка
+                _repository.SaveLanguages(languages); //Сохраняет обновленный список языков
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index");// Перенаправляет пользователя на страницу со списком языков.
         }
     }
 }

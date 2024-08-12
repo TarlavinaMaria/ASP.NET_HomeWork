@@ -26,16 +26,16 @@ namespace ProgrammingLanguage.Pages
             Languages = _repository.GetLanguages();
         }
 
-        public IActionResult OnPostDelete(string name)
+        public IActionResult OnPostDelete(string name) // Вызывается при POST-запросе на удаление языка
         {
-            var languages = _repository.GetLanguages();
-            var languageToRemove = languages.FirstOrDefault(l => l.Name == name);
+            var languages = _repository.GetLanguages();// Получает текущий список языков из репозитория
+            var languageToRemove = languages.FirstOrDefault(l => l.Name == name);// Ищет язык с заданным именем в списке
             if (languageToRemove != null)
             {
                 languages.Remove(languageToRemove);
                 _repository.SaveLanguages(languages);
             }
-            return RedirectToPage();
+            return RedirectToPage(); // Перенаправляет пользователя обратно на текущую страницу, чтобы обновить отображение списка языков
         }
     }
 }
