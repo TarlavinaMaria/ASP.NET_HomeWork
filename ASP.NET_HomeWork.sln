@@ -17,9 +17,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebForms", "WebForms\WebFor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgrammingLanguage", "ProgrammingLanguage\ProgrammingLanguage.csproj", "{0FDF4EC6-5126-4166-9F32-A3C536556B34}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeApplication", "D_RecipeApplication_LocalDb\RecipeApplication\RecipeApplication.csproj", "{F611BA56-29E9-49F0-9FAB-E7B2726EF1C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeApplicationOld", "D_RecipeApplication_LocalDb\RecipeApplication\RecipeApplicationOld.csproj", "{F611BA56-29E9-49F0-9FAB-E7B2726EF1C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication", "Authentication\Authentication.csproj", "{8D441034-4699-4207-B651-BCC9A7CEC384}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authentication", "Authentication\Authentication.csproj", "{8D441034-4699-4207-B651-BCC9A7CEC384}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeApplication", "B_RecipeApplication_LocalDb\RecipeApplication\RecipeApplication.csproj", "{CEF85AD4-54E2-46A3-8690-86D27B8F8CE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{8D441034-4699-4207-B651-BCC9A7CEC384}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D441034-4699-4207-B651-BCC9A7CEC384}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D441034-4699-4207-B651-BCC9A7CEC384}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEF85AD4-54E2-46A3-8690-86D27B8F8CE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEF85AD4-54E2-46A3-8690-86D27B8F8CE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEF85AD4-54E2-46A3-8690-86D27B8F8CE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEF85AD4-54E2-46A3-8690-86D27B8F8CE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
