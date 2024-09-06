@@ -4,51 +4,31 @@
     ViewData["Title"] = Model.Recipe.Name;
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Recipe Application</title>
-    <style>
-        .disabled-link {
-            pointer-events: none;
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        .disabled-button {
-            pointer-events: none;
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-    </style>
-</head>
-<body>
-    <h2>@Model.Recipe.Name</h2>
-    <form asp-page-handler="Delete" asp-route-id="@Model.Recipe.Id">
-        <p>
-            @if (Model.CanEditRecipe)
-            {
-                <a asp-Page="Edit" asp-route-id="@Model.Recipe.Id" class="btn btn-primary">Edit</a>
-                <button class="btn btn-danger">Delete</button>
-            }
-            else
-            {
-                <a asp-Page="Edit" asp-route-id="@Model.Recipe.Id" class="btn btn-primary disabled-link">Edit</a>
-                <button class="btn btn-danger disabled-button">Delete</button>
-            }
-        </p>
-    </form>
-    <p>@Model.Recipe.Method</p>
-
-    <dl>
-        @foreach (var item in Model.Recipe.Ingredients)
+<h2>@Model.Recipe.Name</h2>
+<form asp-page-handler="Delete" asp-route-id="@Model.Recipe.Id">
+    <p>
+        @if (Model.CanEditRecipe)
 
         {
-            <dt>@item.Name</dt>
-            <dd>@item.Quantity</dd>
+            <a asp-Page="Edit" asp-route-id="@Model.Recipe.Id" class="btn btn-primary">Edit</a>
+            <button class="btn btn-danger">Delete</button>
         }
-    </dl>
-</body>
-</html>
+
+        else
+
+        {
+            <a asp-Page="Edit" asp-route-id="@Model.Recipe.Id" class="btn btn-primary disabled-link">Edit</a>
+            <button class="btn btn-danger disabled-button">Delete</button>
+        }
+    </p>
+</form>
+<p>@Model.Recipe.Method</p>
+
+<dl>
+    @foreach (var item in Model.Recipe.Ingredients)
+
+    {
+        <dt>@item.Name</dt>
+        <dd>@item.Quantity</dd>
+    }
+</dl>
