@@ -1,0 +1,16 @@
+﻿@page
+@model RazorPagesDemo.Pages.EmployeeModel
+@{
+    ViewData["Title"] = "GetEmployee Page";
+}
+<div>
+    <table>
+    <tr>
+        <td>
+            <label>Name: 
+                @Model.EmployeeList.FirstOrDefault(x => x.id == Model.Id)?.FirstName
+            </label>
+        </td>
+    </tr>
+</table>
+</div>
