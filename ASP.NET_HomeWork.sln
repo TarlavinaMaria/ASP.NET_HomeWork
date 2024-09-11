@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authentication", "Authentic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeApplication", "B_RecipeApplication_LocalDb\RecipeApplication\RecipeApplication.csproj", "{CEF85AD4-54E2-46A3-8690-86D27B8F8CE5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesDemo", "RazorPagesDemo\RazorPagesDemo.csproj", "{1DF066B7-260A-4F5B-BC4C-5C371EECCFAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{CEF85AD4-54E2-46A3-8690-86D27B8F8CE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEF85AD4-54E2-46A3-8690-86D27B8F8CE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEF85AD4-54E2-46A3-8690-86D27B8F8CE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DF066B7-260A-4F5B-BC4C-5C371EECCFAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DF066B7-260A-4F5B-BC4C-5C371EECCFAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DF066B7-260A-4F5B-BC4C-5C371EECCFAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DF066B7-260A-4F5B-BC4C-5C371EECCFAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
