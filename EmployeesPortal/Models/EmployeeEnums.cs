@@ -1,23 +1,17 @@
-﻿namespace EmployeesPortal.Models
+﻿namespace EmployeePortal.Models
 {
-        public enum EmployeeType
-        {
-            Parmanent,
-            Temporary,
-            Contact,
-            Intern
-        }
-        public enum Departament
-        {
-            IT,
-            HR,
-            Sales,
-            DataScience,
-            Design,
-            Marketing,
-            BusinessAnalysis,
-            QA,
-            Management,
-            Admin
-        } 
+    public enum EmployeeType
+    {
+        Permanent,
+        Temporary,
+        Contract,
+        Intern
+    }
+    public enum Department
+    {
+        IT,
+        HR,
+        Sales,
+        Admin
+    }
 }
