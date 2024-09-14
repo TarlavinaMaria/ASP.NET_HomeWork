@@ -14,17 +14,17 @@ namespace EmployeePortal.Controllers
         {
             _employeeService = new EmployeeService();
         }
+
         [HttpGet]
         public async Task<IActionResult> List(
             [FromQuery] string SearchTerm,
-            [FromQuery] string SelectedDepartament,
+            [FromQuery] string SelectedDepartment,
             [FromQuery] string SelectedType,
             [FromQuery] int PageNumber = 1,
-            [FromQuery] int PageSize = 5
-            )
+            [FromQuery] int PageSize = 5)
         {
             var (employees, totalCount) = await
-                    _employeeService.GetEmployees(SearchTerm, SelectedDepartament, SelectedType, PageNumber, PageSize);
+                    _employeeService.GetEmployees(SearchTerm, SelectedDepartment, SelectedType, PageNumber, PageSize);
 
             var viewModel = new EmployeeListViewModel
             {
@@ -33,13 +33,12 @@ namespace EmployeePortal.Controllers
                 PageSize = PageSize,
                 TotalPages = (int)Math.Ceiling((double)totalCount / PageSize),
                 SearchTerm = SearchTerm,
-                SelectedDepartment = SelectedDepartament,
+                SelectedDepartment = SelectedDepartment,
                 SelectedType = SelectedType
             };
 
             GetSelectLists();
-            ViewBag.PageSizeOptioons = new SelectList(new List<int> { 3, 5, 10, 15, 20, 25 },
-                PageSize);
+            ViewBag.PageSizeOptions = new SelectList(new List<int> { 3, 5, 10, 15, 20, 25 }, PageSize);
             return View(viewModel);
         }
 
@@ -56,7 +55,7 @@ namespace EmployeePortal.Controllers
             if (ModelState.IsValid)
             {
                 _employeeService.CreateEmployee(employee);
-                return RedirectToAction("Success", new { id = employee.id });
+                return RedirectToAction("Success", new { id = employee.Id });
             }
             GetSelectLists();
             return View(employee);
@@ -68,25 +67,27 @@ namespace EmployeePortal.Controllers
             if (employee == null) { return NotFound(); }
             return View(employee);
         }
+
         [HttpGet]
         public IActionResult Update([FromRoute] int id)
         {
             var employee = _employeeService.GetEmployeeById(id);
             if (employee == null) { return NotFound(); }
+            GetSelectLists();
             return View(employee);
-
         }
+
         [HttpPost]
-        IActionResult Update([FromForm] Employee employee)
+        public IActionResult Update([FromForm] Employee employee)
         {
             if (ModelState.IsValid)
             {
                 _employeeService.UpdateEmployee(employee);
 
-                TempData["Сообщение"] = $"Сотрудник номер {employee.id} и с именем {employee.FullName} обновлен.";
+                TempData["Message"] = $"Сотрудник номер {employee.Id} и с именем {employee.FullName} обновлен.";
                 return RedirectToAction("List");
             }
-            GetSelectList();
+            GetSelectLists();
             return View(employee);
         }
 
@@ -96,9 +97,8 @@ namespace EmployeePortal.Controllers
             var employee = _employeeService.GetEmployeeById(id);
             if (employee == null) { return NotFound(); }
             return View(employee);
-
-
         }
+
         [HttpPost, ActionName("Delete")]
         public IActionResult DeleteConfirmed([FromRoute] int id)
         {
@@ -106,43 +106,38 @@ namespace EmployeePortal.Controllers
             if (employee == null) { return NotFound(); }
             _employeeService.DeleteEmployee(id);
 
-            TempData["Сообщение"] = $"Сотрудник номер {employee.id} и с именем {employee.FullName} удален.";
+            TempData["Message"] = $"Сотрудник номер {employee.Id} и с именем {employee.FullName} удален.";
             return RedirectToAction("List");
         }
+
         [HttpGet]
         public JsonResult GetPositions(Department department)
         {
             var positions = new Dictionary<Department, List<string>>
             {
-                { Department.IT, new List<string>{"Разаработка ПО", "Системное администрирование", "Сетевое администрирование" }},
+                { Department.IT, new List<string>{"Разработка ПО", "Системное администрирование", "Сетевое администрирование" }},
+                { Department.HR, new List<string> {"Специалист по кадрам", "Менеджер по кадрам", "Координатор" }},
+                { Department.Sales, new List<string> { "Менеджер продаж", "Специалист по продажам", "Начальник отдела" }},
+                { Department.Admin, new List<string> { "Офис-менеджер", "Ассистент", "Служащий ресепшна" }}
+            };
 
-        {
-                Department.HR, new List<string> {"Специалист по кадрам", "Менеджер по кадрам", "Координатор" }},
-
-{
-    Department.Sales, new List<string> { "Менеджер продаж", "Специалист по продажам", "Начальник отдела" }},
-            {
-                Department.Admin, new List<string> { "Офис-менеджер", "Ассистент", "Служащий ресепшна" }}
-                };
-
-            var
+            var result = positions.ContainsKey(department) ? positions[department] : new List<string>();
             return Json(result);
-
         }
-        private void Ge
+
+        private void GetSelectLists()
+        {
+            ViewBag.Departments = Enum.GetValues(typeof(Department)).Cast<Department>().Select(d => new SelectListItem
+            {
+                Value = d.ToString(),
+                Text = d.ToString()
+            }).ToList();
+
+            ViewBag.EmployeeTypes = Enum.GetValues(typeof(EmployeeType)).Cast<EmployeeType>().Select(t => new SelectListItem
+            {
+                Value = t.ToString(),
+                Text = t.ToString()
+            }).ToList();
+        }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,5 +1,4 @@
-﻿using EmployeePortal.Models.EmployeePortal.Models;
-
+﻿
 namespace EmployeePortal.Models
 {
     public class EmployeeListViewModel

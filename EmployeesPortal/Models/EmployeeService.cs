@@ -1,5 +1,4 @@
-﻿using EmployeePortal.Models.EmployeePortal.Models;
-using System.Xml.Linq;
+﻿using System.Xml.Linq;
 
 namespace EmployeePortal.Models
 {

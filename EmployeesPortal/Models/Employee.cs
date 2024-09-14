@@ -3,8 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EmployeePortal.Models
 {
-    namespace EmployeePortal.Models
-    {
         public class Employee
         {
             public int Id { get; set; }
@@ -40,5 +38,4 @@ namespace EmployeePortal.Models
             [DataType(DataType.Currency)]
             public decimal? Salary { get; set; }
         }
-    }
 }

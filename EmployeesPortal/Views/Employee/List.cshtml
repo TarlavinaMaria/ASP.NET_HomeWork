@@ -1,0 +1,90 @@
+﻿@model EmployeePortal.Models.EmployeeListViewModel
+
+<h2>Список сотрудников</h2>
+
+<form method="get" asp-action="List">
+    <div class="form-group">
+        <label for="SearchTerm">Поиск по имени:</label>
+        <input type="text" class="form-control" id="SearchTerm" name="SearchTerm" value="@Model.SearchTerm">
+    </div>
+    <div class="form-group">
+        <label for="SelectedDepartment">Отдел:</label>
+        <select class="form-control" id="SelectedDepartment" name="SelectedDepartment">
+            <option value="">Все отделы</option>
+            @foreach (var department in ViewBag.Departments)
+            {
+                <option value="@department.Value" selected="@(department.Value == Model.SelectedDepartment)">@department.Text</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="SelectedType">Тип сотрудника:</label>
+        <select class="form-control" id="SelectedType" name="SelectedType">
+            <option value="">Все типы</option>
+            @foreach (var type in ViewBag.EmployeeTypes)
+            {
+                <option value="@type.Value" selected="@(type.Value == Model.SelectedType)">@type.Text</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="PageSize">Сотрудников на странице:</label>
+        <select class="form-control" id="PageSize" name="PageSize">
+            @foreach (var size in ViewBag.PageSizeOptions)
+            {
+                <option value="@size.Value" selected="@(size.Value == Model.PageSize.ToString())">@size.Text</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Фильтровать</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ФИО</th>
+            <th>Email</th>
+            <th>Должность</th>
+            <th>Отдел</th>
+            <th>Дата приема</th>
+            <th>Дата рождения</th>
+            <th>Тип</th>
+            <th>Пол</th>
+            <th>Зарплата</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model.Employees)
+        {
+            <tr>
+                <td>@employee.Id</td>
+                <td>@employee.FullName</td>
+                <td>@employee.Email</td>
+                <td>@employee.Position</td>
+                <td>@employee.Department</td>
+                <td>@employee.HireDate?.ToShortDateString()</td>
+                <td>@employee.DateOfBirth?.ToShortDateString()</td>
+                <td>@employee.Type</td>
+                <td>@employee.Gender</td>
+                <td>@employee.Salary</td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@employee.Id">Редактировать</a> |
+                    <a asp-action="Delete" asp-route-id="@employee.Id">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<nav>
+    <ul class="pagination">
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                <a class="page-link" href="@Url.Action("List", new { PageNumber = i, PageSize = Model.PageSize, SearchTerm = Model.SearchTerm, SelectedDepartment = Model.SelectedDepartment, SelectedType = Model.SelectedType })">@i</a>
+            </li>
+        }
+    </ul>
+</nav>
