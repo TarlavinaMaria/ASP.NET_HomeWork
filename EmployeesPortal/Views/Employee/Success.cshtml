@@ -1,41 +1,64 @@
 ﻿@model EmployeePortal.Models.Employee
 
-<h2>Сотрудник успешно создан</h2>
+@{
+    ViewData["Title"] = "Успешно создан сотрудник";
+}
 
-<div>
-    <h4>Сотрудник</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">ID</dt>
-        <dd class="col-sm-10">@Model.Id</dd>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4 border rounded">
+                    <div class="text-center mb-4">
+                        <h2 class="text-success mb-3"><i class="bi bi-check-circle-fill"></i> Сотрудник успешно создан!</h2>
+                        <p class="text-muted">Добро пожаловать, <strong>@Model.FullName</strong>! Мы рады видеть вас в отделе <strong>@Model.Department</strong>. Ниже приведены данные о новом сотруднике:</p>
+                    </div>
 
-        <dt class="col-sm-2">ФИО</dt>
-        <dd class="col-sm-10">@Model.FullName</dd>
+                    <div class="table-responsive">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <th class="text-muted text-start" style="width: 30%;">📧 Email:</th>
+                                    <td class="fw-bold text-dark text-start">@Model.Email</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-muted text-start">💼 Должность:</th>
+                                    <td class="fw-bold text-dark text-start">@Model.Position</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-muted text-start">🏢 Отдел:</th>
+                                    <td class="fw-bold text-dark text-start">@Model.Department</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-muted text-start">🗓️ Дата приема:</th>
+                                    <td class="fw-bold text-dark text-start">@Model.HireDate?.ToShortDateString()</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-muted text-start">🎂 Дата рождения:</th>
+                                    <td class="fw-bold text-dark text-start">@Model.DateOfBirth?.ToShortDateString()</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-muted text-start">👔 Тип сотрудника:</th>
+                                    <td class="fw-bold text-dark text-start">@Model.Type</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-muted text-start">⚧ Пол:</th>
+                                    <td class="fw-bold text-dark text-start">@Model.Gender</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-muted text-start">💰 Зарплата:</th>
+                                    <td class="fw-bold text-dark text-start">$@Model.Salary?.ToString("N2")</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-        <dt class="col-sm-2">Email</dt>
-        <dd class="col-sm-10">@Model.Email</dd>
-
-        <dt class="col-sm-2">Должность</dt>
-        <dd class="col-sm-10">@Model.Position</dd>
-
-        <dt class="col-sm-2">Отдел</dt>
-        <dd class="col-sm-10">@Model.Department</dd>
-
-        <dt class="col-sm-2">Дата приема</dt>
-        <dd class="col-sm-10">@Model.HireDate?.ToShortDateString()</dd>
-
-        <dt class="col-sm-2">Дата рождения</dt>
-        <dd class="col-sm-10">@Model.DateOfBirth?.ToShortDateString()</dd>
-
-        <dt class="col-sm-2">Тип</dt>
-        <dd class="col-sm-10">@Model.Type</dd>
-
-        <dt class="col-sm-2">Пол</dt>
-        <dd class="col-sm-10">@Model.Gender</dd>
-
-        <dt class="col-sm-2">Зарплата</dt>
-        <dd class="col-sm-10">@Model.Salary</dd>
-    </dl>
-
-    <a asp-action="List">Назад к списку</a>
+                    <div class="text-center mt-4">
+                        <a class="btn btn-success btn-lg me-3" asp-controller="Employee" asp-action="Create"><i class="bi bi-person-plus-fill"></i> Создать еще одного сотрудника</a>
+                        <a class="btn btn-primary btn-lg" asp-controller="Employee" asp-action="List"><i class="bi bi-arrow-left-circle-fill"></i> Вернуться к списку сотрудников</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

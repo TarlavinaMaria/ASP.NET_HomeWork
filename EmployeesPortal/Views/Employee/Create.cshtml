@@ -1,52 +1,162 @@
 ﻿@model EmployeePortal.Models.Employee
 
-<h2>Создать сотрудника</h2>
+@{
+    ViewData["Title"] = "Создать нового сотрудника";
+}
 
-<form method="post" asp-action="Create">
-    <div class="form-group">
-        <label asp-for="FullName">ФИО</label>
-        <input asp-for="FullName" class="form-control" />
-        <span asp-validation-for="FullName" class="text-danger"></span>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4 border rounded">
+                    <h2 class="text-center text-primary mb-4">👤 Создать нового сотрудника</h2>
+
+                    <form asp-controller="Employee" asp-action="Create" method="post">
+                        <div class="row mb-3">
+                            <label asp-for="FullName" class="col-sm-3 col-form-label text-end">ФИО:</label>
+                            <div class="col-sm-9">
+                                <input asp-for="FullName" class="form-control" placeholder="Введите ФИО" title="ФИО" />
+                                <span asp-validation-for="FullName" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label asp-for="Email" class="col-sm-3 col-form-label text-end">📧 Email:</label>
+                            <div class="col-sm-9">
+                                <input asp-for="Email" class="form-control" placeholder="Введите email" title="Email" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label asp-for="Department" class="col-sm-3 col-form-label text-end">🏢 Отдел:</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <select asp-for="Department" class="form-control" asp-items="@ViewBag.DepartmentOptions" title="Выберите отдел" id="DepartmentDropdown">
+                                        <option value="">Выберите отдел</option>
+                                    </select>
+                                    <span class="input-group-text"><i class="bi bi-caret-down-fill"></i></span>
+                                </div>
+                                <span asp-validation-for="Department" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label asp-for="Position" class="col-sm-3 col-form-label text-end">💼 Должность:</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <select asp-for="Position" class="form-control" id="PositionDropdown" title="Выберите должность">
+                                        <option value="">Выберите должность</option>
+                                    </select>
+                                    <span class="input-group-text"><i class="bi bi-caret-down-fill"></i></span>
+                                </div>
+                                <span asp-validation-for="Position" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label asp-for="HireDate" class="col-sm-3 col-form-label text-end">🗓️ Дата приема:</label>
+                            <div class="col-sm-9">
+                                <input asp-for="HireDate" class="form-control" type="date" title="Выберите дату приема" />
+                                <span asp-validation-for="HireDate" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label asp-for="DateOfBirth" class="col-sm-3 col-form-label text-end">🎂 Дата рождения:</label>
+                            <div class="col-sm-9">
+                                <input asp-for="DateOfBirth" class="form-control" type="date" title="Выберите дату рождения" />
+                                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label asp-for="Type" class="col-sm-3 col-form-label text-end">👔 Тип сотрудника:</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <select asp-for="Type" class="form-control" asp-items="@ViewBag.EmployeeTypeOptions" title="Выберите тип сотрудника">
+                                        <option value="">Выберите тип сотрудника</option>
+                                    </select>
+                                    <span class="input-group-text"><i class="bi bi-caret-down-fill"></i></span>
+                                </div>
+                                <span asp-validation-for="Type" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label asp-for="Gender" class="col-sm-3 col-form-label text-end">⚧ Пол:</label>
+                            <div class="col-sm-9">
+
+                                <div class="form-check form-check-inline">
+                                    <input asp-for="Gender" type="radio" class="form-check-input" value="Муж" />
+                                    <label class="form-check-label" asp-for="Gender">Мужской</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input asp-for="Gender" type="radio" class="form-check-input" value="Жен" />
+                                    <label class="form-check-label" asp-for="Gender">Женский</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input asp-for="Gender" type="radio" class="form-check-input" value="Другой" />
+                                    <label class="form-check-label" asp-for="Gender">Другой</label>
+                                </div>
+                                <span asp-validation-for="Gender" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label asp-for="Salary" class="col-sm-3 col-form-label text-end">💰 Зарплата:</label>
+                            <div class="col-sm-9">
+                                <input asp-for="Salary" class="form-control" placeholder="Введите зарплату" title="Зарплата" />
+                                <span asp-validation-for="Salary" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-success btn-lg me-3"><i class="bi bi-check-circle-fill"></i> Создать</button>
+                            <a class="btn btn-primary btn-lg" asp-controller="Employee" asp-action="List"><i class="bi bi-arrow-left-circle-fill"></i> Назад</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Email">Email</label>
-        <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Position">Должность</label>
-        <input asp-for="Position" class="form-control" />
-        <span asp-validation-for="Position" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Department">Отдел</label>
-        <select asp-for="Department" asp-items="ViewBag.Departments" class="form-control"></select>
-        <span asp-validation-for="Department" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="HireDate">Дата приема</label>
-        <input asp-for="HireDate" class="form-control" />
-        <span asp-validation-for="HireDate" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="DateOfBirth">Дата рождения</label>
-        <input asp-for="DateOfBirth" class="form-control" />
-        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Type">Тип</label>
-        <select asp-for="Type" asp-items="ViewBag.EmployeeTypes" class="form-control"></select>
-        <span asp-validation-for="Type" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Gender">Пол</label>
-        <input asp-for="Gender" class="form-control" />
-        <span asp-validation-for="Gender" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Salary">Зарплата</label>
-        <input asp-for="Salary" class="form-control" />
-        <span asp-validation-for="Salary" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Создать</button>
-</form>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Функция для загрузки должностей и установки выбранной должности
+            function loadPositions(department, selectedPosition) {
+                if (department) {
+                    $.getJSON('@Url.Action("GetPositions")', { department: department }, function (data) {
+                        var $positionDropdown = $('#PositionDropdown');
+                        $positionDropdown.empty();
+                        $positionDropdown.append('<option value="">Выберите должность</option>');
+                        $.each(data, function (index, value) {
+                            var selected = (value === selectedPosition) ? 'selected' : '';
+                            $positionDropdown.append('<option value="' + value + '" ' + selected + '>' + value + '</option>');
+                        });
+                    });
+                } else {
+                    $('#PositionDropdown').empty().append('<option value="">Выберите должность</option>');
+                }
+            }
+
+            // Проверка значения DepartmentDropdown при загрузке страницы и заполнение PositionDropdown
+            var department = $('#DepartmentDropdown').val();
+            var selectedPosition = '@(Model?.Position ?? "")'; // Безопасная проверка, если Model или Model.Position равно null
+
+            if (department) {
+                loadPositions(department, selectedPosition);
+            }
+
+            // При изменении значения в DepartmentDropdown, загружаем соответствующие должности
+            $('#DepartmentDropdown').change(function () {
+                var department = $(this).val();
+                loadPositions(department, ''); // Очищаем выбранную должность при изменении отдела
+            });
+        });
+    </script>
+}
