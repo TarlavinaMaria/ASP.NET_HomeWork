@@ -1,4 +1,5 @@
 ﻿using EmployeePortal.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -45,6 +46,7 @@ namespace EmployeePortal.Controllers
         }
 
         [HttpGet]
+        [Authorize] // Ограничивает доступ к этой странице
         public IActionResult Create()
         {
             // Prepare dropdown options before rendering the Create view
@@ -54,6 +56,7 @@ namespace EmployeePortal.Controllers
 
         // Model binding from the form data
         [HttpPost]
+        [Authorize] // Ограничивает доступ к этой странице
         public IActionResult Create([FromForm] Employee employee)
         {
             if (ModelState.IsValid)
@@ -69,6 +72,7 @@ namespace EmployeePortal.Controllers
         }
 
         // Model binding from the route data
+        [Authorize] // Ограничивает доступ к этой странице
         public IActionResult Success([FromRoute] int id)
         {
             // Retrieve the employee by ID and display the Success view
@@ -110,6 +114,7 @@ namespace EmployeePortal.Controllers
 
         // Model binding from the form data
         [HttpPost]
+        [Authorize] // Ограничивает доступ к этой странице
         public IActionResult Update([FromForm] Employee employee)
         {
             if (ModelState.IsValid)
@@ -127,6 +132,7 @@ namespace EmployeePortal.Controllers
 
         // Model binding from the route data
         [HttpGet]
+        [Authorize] // Ограничивает доступ к этой странице
         public IActionResult Delete([FromRoute] int id)
         {
             // Retrieve the employee by ID and prepare the Delete confirmation view
@@ -141,6 +147,7 @@ namespace EmployeePortal.Controllers
         // We use ActionName to map this method to the "Delete" action
         // Model binding from the route data
         [HttpPost, ActionName("Delete")]
+        [Authorize] // Ограничивает доступ к этой странице
         public IActionResult DeleteConfirmed([FromRoute] int id)
         {
             // Retrieve the employee by ID and delete the employee
